@@ -32,3 +32,12 @@ h3 {
 .container > button {
   margin-top: 10px;
 }
+
+.buttons {
+  max-width: 200px;
+  width: 100%;
+}
+
+.content button {
+  width: 100%;
+}
