@@ -19,7 +19,8 @@ const store = configureStore({
     }
 })
 
-export { store }
+export { store };
+export const { addSong } = songsSlice.actions;
 
 //list of all reducers
 // console.log(songsSlice.actions)

@@ -41,3 +41,7 @@ h3 {
 .content button {
   width: 100%;
 }
+
+.content li button {
+  width: unset;
+}
