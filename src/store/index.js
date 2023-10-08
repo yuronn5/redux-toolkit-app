@@ -8,7 +8,11 @@ const songsSlice = createSlice({
             state.push(action.payload);
         },
         removeSong: (state, action) => {
-            //
+            // action.payload = string , the song we want to remove
+
+            const index = state.indexOf(action.payload);
+
+            state.splice(index, 1);
         },
     },
 })
@@ -20,7 +24,7 @@ const store = configureStore({
 })
 
 export { store };
-export const { addSong } = songsSlice.actions;
+export const { addSong, removeSong } = songsSlice.actions;
 
 //list of all reducers
 // console.log(songsSlice.actions)
