@@ -18,6 +18,9 @@ const store = configureStore({
         songs: songsSlice.reducer
     }
 })
+
+export { store }
+
 //list of all reducers
 // console.log(songsSlice.actions)
 
@@ -27,13 +30,13 @@ const store = configureStore({
 //with payload as arg
 // console.log(songsSlice.actions.addSong('Some song'))
 
-store.dispatch(
+// store.dispatch(
     //to prevent typo errors
-    songsSlice.actions.addSong('Some son1g')
-)
+    // songsSlice.actions.addSong('Some son1g')
+// )
 
 //to look at state (will show us all state inside the store object)
-const startingState = store.getState();
+// const startingState = store.getState();
 
-console.log(store);
-console.log(startingState);
+// console.log(store);
+// console.log(startingState);
