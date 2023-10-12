@@ -15,6 +15,13 @@ const songsSlice = createSlice({
             state.splice(index, 1);
         },
     },
+    //to watch additional reducer (in our case to watch movie/reset reducer)
+    extraReducers(builder) {
+        console.log(builder);
+        builder.addCase('movie/reset', (state, action) => {
+            return [];
+        })
+    }
 })
 
 const moviesSlice = createSlice({
