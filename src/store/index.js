@@ -1,4 +1,8 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, createAction } from "@reduxjs/toolkit";
+
+export const reset = createAction('app/reset');
+console.log(reset())
+
 
 const songsSlice = createSlice({
     name: 'song',
@@ -16,10 +20,17 @@ const songsSlice = createSlice({
         },
     },
     //to watch additional reducer (in our case to watch movie/reset reducer)
+    // extraReducers(builder) {
+    //     console.log(builder);
+    //     builder.addCase('movie/reset', (state, action) => {
+    //         return [];
+    //     })
+    // }
+
+    //this one is for multiple listen (from songs slice and movie slice)
     extraReducers(builder) {
-        console.log(builder);
-        builder.addCase('movie/reset', (state, action) => {
-            return [];
+        builder.addCase(reset, (state,action) => {
+            return []
         })
     }
 })
@@ -42,6 +53,12 @@ const moviesSlice = createSlice({
             return [];
         }
     },
+    //this one is for multiple listen (from songs slice and movie slice)
+    extraReducers(builder) {
+        builder.addCase(reset, (state,action) => {
+            return []
+        })
+    }
 })
 
 const store = configureStore({
@@ -53,7 +70,7 @@ const store = configureStore({
 
 export { store };
 export const { addSong, removeSong } = songsSlice.actions;
-export const { addMovie, removeMovie, reset } = moviesSlice.actions;
+export const { addMovie, removeMovie } = moviesSlice.actions;
 
 //list of all reducers
 // console.log(songsSlice.actions)
